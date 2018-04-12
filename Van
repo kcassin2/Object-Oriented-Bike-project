@@ -8,8 +8,10 @@ import java.util.Scanner;
 
 public class Van {
     private List<Inventory> vanDB;
-	  private Scanner read;
-	  private String vanName;
+    private Scanner read;
+    private String vanName;
+    private String vanAssociateName;
+    private SalesAssociate vanAssociate;
 
     public Van() {
         vanDB = new ArrayList<Inventory>();
@@ -97,11 +99,27 @@ public class Van {
         }
     }
 
-    void setName(String name) {
-        vanName = name;
+    public void setVanName(String vanName) {
+        this.vanName = vanName
     }
 
-    String getName() {
+    public String getName() {
         return vanName;
+    }
+    
+    public void setVanAssociate(String vanAssociateName) {
+        this.vanAssociateName = vanAssociateName;
+	for(SalesAssociate s: Account){
+		if (s.getAssociateName().equals(vanAssociateName)){
+			vanAssociate = s;
+			break;
+		}else {
+			return null;
+		}
+	}
+    }
+
+    public String getVanAssociate() {
+        return vanAssociate;
     }
 }
