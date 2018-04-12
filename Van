@@ -1,1 +1,107 @@
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.io.PrintWriter;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Scanner;
 
+public class Van {
+    private List<Inventory> vanDB;
+	  private Scanner read;
+	  private String vanName;
+
+    public Van() {
+        vanDB = new ArrayList<Inventory>();
+    }
+
+    private Inventory findInventory(BikePart bp) {
+        for (Inventory i : vanDB) {
+            if (i.getBp().equals(bp))
+                return i;
+        }
+        return null;
+    }
+
+    private void updateInventory(Inventory i, BikePart bp, int qty) {
+        i.getBp().setPrice(bp.getPrice());
+        i.getBp().setSalesPrice(bp.getSalesPrice());
+        i.getBp().setOnSale(bp.isOnSale());
+        i.setCount(i.getCount() + qty);
+    }
+
+    public void addInventory(BikePart bp, int qty) {
+        Inventory i = findInventory(bp);
+        if (i != null)
+            updateInventory(i, bp, qty);
+        else
+            vanDB.add(new Inventory(bp,qty));
+    }
+
+    public void updateVanDB(String fileName) throws FileNotFoundException{
+        File file = new File(fileName);
+        read = new Scanner(file);
+        while (read.hasNextLine()) {
+            String line = read.nextLine();
+            String regExp = "\\s*(\\s|,)\\s*";
+            String[] bpi = line.split(regExp);
+            BikePart bp = new BikePart(bpi[0],
+                                       Integer.parseInt(bpi[1]),
+                                       Double.parseDouble(bpi[2]),
+                                       Double.parseDouble(bpi[3]),
+                                       bpi[4].equals("true") ? true : false);
+            int qty = Integer.parseInt(bpi[5]);
+            addInventory(bp, qty);
+        }
+    }
+
+    public Inventory sellPart(int partNum, int quantity) {
+        Inventory f = null;
+        for (Inventory i : vanDB) {
+            if (i.getBp().getNumber() == partNum) {
+                f = i;
+                break;
+            }
+        }
+        if (f != null)
+            updateInventory(f,f.getBp(), -quantity);
+        return f;
+    }
+
+    public Inventory findPartByName(String partName) {
+        for (Inventory i : vanDB) {
+            if (i.getBp().getName().equals(partName))
+                return i;
+        }
+        return null;
+    }
+
+    public List<Inventory> getInventory() {
+        return vanDB;
+    }
+
+    public void saveVanDB(String fileName) {
+        try{
+            PrintWriter writer = new PrintWriter(fileName, "UTF-8");
+            for (Inventory i : vanDB)
+                writer.println(i.getBp().getName() + "," +
+                               i.getBp().getNumber() + "," +
+                               i.getBp().getPrice() + "," +
+                               i.getBp().getSalesPrice() + "," +
+                               i.getBp().isOnSale() + "," +
+                               i.getCount());
+            writer.close();
+        } catch (IOException e) {
+            System.out.println("file error!");
+            e.printStackTrace();
+        }
+    }
+
+    void setName(String name) {
+        vanName = name;
+    }
+
+    String getName() {
+        return vanName;
+    }
+}
