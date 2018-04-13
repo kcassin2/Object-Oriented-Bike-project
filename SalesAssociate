@@ -1,1 +1,23 @@
+import java.util.ArrayList;
+import java.util.Date;
 
+/**
+ *
+ * @author Karen Cassine
+ */
+public class SalesAssociate extends Account{
+
+    public SalesAssociate(String firstName, String lastName, String userName, String password) {
+        super(firstName, lastName, userName, password);
+    }
+    
+    public String getUsername(){
+        
+    }
+    public String getPassword(){
+        
+    }
+    public ArrayList<String> generateInvoice(Date date){
+        
+    }
+}
