@@ -1,1 +1,27 @@
+import java.util.ArrayList;
+import java.util.Date;
 
+public class SalesInvoice {
+   Date saleDate;
+   ArrayList <String> partNames;
+   ArrayList <Integer> amounts;
+   ArrayList <Double> prices;
+   SalesAssociate soldBy;
+   String soldTo;
+   String associate;
+   String client;
+   ArrayList<Sale> saleHistory;
+   ArrayList<Sale> invoice;
+   
+   
+   public void addSale(Date date, String partName, int amounts, double prices){
+
+}
+   public double salesCommission(){
+       
+   }
+   public String getSoldTo(){
+       
+   }
+  
+}
