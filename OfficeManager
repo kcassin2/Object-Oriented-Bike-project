@@ -1,4 +1,6 @@
+import java.util.ArrayList;
 
+public class OfficeManager extends Account{
   public Inventory examinePartByName(String partName) {
     Inventory i = MainWareHouse.findPartByName(partName);
     return i;
@@ -19,3 +21,4 @@
   }
   public double generatePay(String associateName, Date sDate, Date eDate) {
   }
+}
