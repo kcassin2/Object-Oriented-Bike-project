@@ -10,12 +10,12 @@ public class WareHouseManager extends Account{
 		super(firstName, lastName, userName, password);
 	}
 	
-	public String updateBP() {
-		return whFileName;
+	public static void updateBP(String whFileName) {
+		
 		
 	}
 	
-	public String examinePart() {
+	public String examinePart(String partInfo) {
 		return partInfo;
 	}
 	
