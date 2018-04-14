@@ -85,7 +85,7 @@ public class MainWareHouse {
 		return whDB;
 	}
 
-	public void saveVanDB(String fileName) {
+	public void saveWhDB(String fileName) {
 		try{
 			PrintWriter writer = new PrintWriter(fileName, "UTF-8");
 			for (Inventory i : whDB)
