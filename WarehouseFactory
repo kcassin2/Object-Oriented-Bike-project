@@ -1,1 +1,30 @@
 
+import java.util.ArrayList;
+
+public class WarehouseFactory {
+	
+	private String whName;
+	private String fileName;
+	ArrayList <String> Warehouse;
+	
+	WarehouseFactory(String whName, String fileName){
+		this.fileName = fileName;
+		this.whName = whName;
+	}
+	
+	public static void getWareHouse(String whName) {
+		
+	}
+	
+	
+	public static ArrayList<String> getAllWareHouses(ArrayList<String> Warehouse) {
+		return Warehouse;
+		
+	}
+	
+	public boolean moveInventory(String fileName) {
+		return false;
+		
+	}
+	
+}
