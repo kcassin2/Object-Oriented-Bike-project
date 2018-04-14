@@ -1,1 +1,21 @@
 
+  public Inventory examinePartByName(String partName) {
+    Inventory i = MainWareHouse.findPartByName(partName);
+    return i;
+  }
+  public Inventory examinePartByNumber(int partNumber) {
+    Inventory i = MainWareHouse.findPartByNumber(partNumber);
+    return i;
+  }
+  public String viewNotification() {
+  }
+  public String queryWarehouse() {
+  }
+  public void orderPart(String partName, int quantity) {
+  }
+  public String viewInvoiceC(String client) {
+  }
+  public String viewInvoiceA(String associateName) {
+  }
+  public double generatePay(String associateName, Date sDate, Date eDate) {
+  }
