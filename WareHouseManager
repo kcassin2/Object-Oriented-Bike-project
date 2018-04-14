@@ -1,1 +1,23 @@
+import java.util.ArrayList;
 
+
+public class WareHouseManager extends Account{
+
+	private String partInfo;
+	private String whFileName;
+	
+	WareHouseManager(String partInfo, String whFileName){
+		super(firstName, lastName, userName, password);
+	}
+	
+	public String updateBP() {
+		return whFileName;
+		
+	}
+	
+	public String examinePart() {
+		return partInfo;
+	}
+	
+	
+}
