@@ -80,6 +80,14 @@ public class MainWareHouse {
 		}
 		return null;
 	}
+	
+	public Inventory findPartByNumber(int partNumber) {
+		for (Inventory i : whDB) {
+			if (i.getBp().getNumber().equals(partNumber))
+				return i;
+		}
+		return null;
+	}
 
 	public List<Inventory> getInventory() {
 		return whDB;
