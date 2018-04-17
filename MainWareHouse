@@ -83,7 +83,7 @@ public class MainWareHouse {
 	
 	public Inventory findPartByNumber(int partNumber) {
 		for (Inventory i : whDB) {
-			if (i.getBp().getNumber().equals(partNumber))
+			if (i.getBp().getNumber()==partNumber)
 				return i;
 		}
 		return null;
