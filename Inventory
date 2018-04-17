@@ -19,6 +19,22 @@ public class Inventory {
         this.bp = bp;
         this.count = count;
     }
+    
+    public static Comparator<Inventory> SORT_BY_COUNT = new Comparator<Inventory>() {
+
+        @Override
+
+        public int compare(final Inventory o1, final Inventory o2) {
+
+            String o1Name = o1.getBp().getName() + o1.getBp().getName() + o1.getCount();
+
+            String o2Name = o2.getBp().getName() + o2.getBp().getName() + o2.getCount();;
+
+            return o1Count.compareTo(o2Count);
+
+        }
+
+    };
 
     public BikePart getBp() {
         return bp;
