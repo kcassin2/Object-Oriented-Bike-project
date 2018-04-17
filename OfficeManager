@@ -10,6 +10,12 @@ public class OfficeManager extends Account{
     return i;
   }
   public String viewNotification() {
+  minimum = 10;
+  for (Inventory i : whDB) {
+			if (i.getCount()<=minimum)
+				String s += i;
+		}
+		return s;
   }
   public String queryWarehouse() {
   }
