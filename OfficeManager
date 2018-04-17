@@ -27,12 +27,16 @@ public class OfficeManager extends Account{
 	return s;
   }
   public void orderPart(String partName, int quantity) {
-  	
+  	Inventory i = MainWareHouse.findPartByName(partName);
+	addinventory(i.getBp,quantity);
   }
   public String viewInvoiceC(String client) {
+  	
   }
   public String viewInvoiceA(String associateName) {
+  	
   }
   public double generatePay(String associateName, Date sDate, Date eDate) {
+  	
   }
 }
