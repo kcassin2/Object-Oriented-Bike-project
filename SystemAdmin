@@ -2,19 +2,19 @@ import java.util.ArrayList;
 public class SystemAdmin extends Account{
 
 	public OfficeManager addOfficeManager(String firstName, String lastName, String email, String uName, String password){
-	  OfficeManager om = OfficeManager.addAccount(firstName, lastName, email, uName, password);
-    return om;
+	  	OfficeManager om = Account.addAccount(firstName, lastName, email, uName, password);
+    		return om;
 	}
 
 	public WareHouseManager addWareHouseManager(String firstName, String lastName, String email, String uName, String password) {	
-    WareHouseManager wm = WareHouseManager.addAccount(firstName, lastName, email, uName, password);
-    return wm;
+    		WareHouseManager wm = Account.addAccount(firstName, lastName, email, uName, password);
+    		return wm;
 	}
   
 	public SalesAssociate addSalesAssociate(String firstName, String lastName, String email, String uName, String password, String vanName) {
-    SalesAssociate sa = SalesAssociate.addAccount(firstName, lastName, email, uName, password);
-    Van SaVan= New Van();
-    SaVan.setAssociate(fName+lName);
-    return sa;
+    		SalesAssociate sa = Account.addAccount(firstName, lastName, email, uName, password);
+    		Van SaVan= New Van();
+    		SaVan.setAssociate(fName+lName);
+    		return sa;
 	}
 }
