@@ -2,7 +2,6 @@ import java.util.ArrayList;
 
 public class WarehouseFactory {
 	
-	
 	private ArrayList<WareHouse> Warehouses;
 	
 	public WarehouseFactory(){
@@ -11,6 +10,5 @@ public class WarehouseFactory {
 	
 	public static ArrayList<WareHouse> getAllWareHouses(ArrayList<WareHouse> Warehouses) {
 		return Warehouses;
-		
 	}
 }
