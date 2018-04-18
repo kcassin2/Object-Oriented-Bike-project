@@ -1,0 +1,42 @@
+import java.util.ArrayList;
+import java.util.Date;
+
+
+public class Sale
+{
+   Date saleDate;
+   ArrayList <String> partNames;
+   ArrayList <Integer> amounts;
+   ArrayList <Double> prices;
+   SalesAssociate soldBy;
+   String soldTo;
+
+   
+   public Sale(Date saleDate,
+               ArrayList <String> partNames,
+               ArrayList <Integer> amounts,
+               ArrayList <Double> prices,
+               SalesAssociate soldBy,
+               String soldTo)
+   {
+       this.saleDate = saleDate;
+       this.partNames = partNames;
+       this.amounts = amounts;
+       this.prices = prices;
+       this.soldBy = soldBy;
+       this.soldTo = soldTo;
+   }
+
+   
+   public Date getSaleDate(){ return saleDate; }
+   
+   public ArrayList<String> getPartNames() {return partNames; }
+   
+   public ArrayList<Integer> getAmounts() { return amounts; }
+  
+   public ArrayList<Double> getPrices() { return prices; }
+  
+   public SalesAssociate getSoldBy() { return soldBy; }
+   
+   public String getSoldTo() { return soldTo; }
+}
