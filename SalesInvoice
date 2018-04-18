@@ -1,43 +1,52 @@
 import java.util.ArrayList;
 import java.util.Date;
 
-
-public class Sale
-{
-   Date saleDate;
-   ArrayList <String> partNames;
-   ArrayList <Integer> amounts;
-   ArrayList <Double> prices;
-   SalesAssociate soldBy;
-   String soldTo;
-
-   
-   public Sale(Date saleDate,
-               ArrayList <String> partNames,
-               ArrayList <Integer> amounts,
-               ArrayList <Double> prices,
-               SalesAssociate soldBy,
-               String soldTo)
-   {
-       this.saleDate = saleDate;
-       this.partNames = partNames;
-       this.amounts = amounts;
-       this.prices = prices;
-       this.soldBy = soldBy;
-       this.soldTo = soldTo;
+public class SalesInvoice {
+   ArrayList<Sale> saleHistory;
+   ArrayList<Sale> invoice;
+   public SalesInvoice(){
+       saleHistory = new ArrayList<>();
    }
 
-   
-   public Date getSaleDate(){ return saleDate; }
-   
-   public ArrayList<String> getPartNames() {return partNames; }
-   
-   public ArrayList<Integer> getAmounts() { return amounts; }
-  
-   public ArrayList<Double> getPrices() { return prices; }
-  
-   public SalesAssociate getSoldBy() { return soldBy; }
-   
-   public String getSoldTo() { return soldTo; }
-}
+   public void addSale(Sale sale){
+       saleHistory.add(sale);
+   }
 
+
+   
+
+       System.out.println("Invoice for Sales Associate " + salesAssociate.getFirstName() + " " + salesAssociate.getLastName());
+       System.out.println("From the dates " + startDate + " to " + endDate);
+       for (Sale in : invoice){
+           System.out.println("Date:\t" + in.getSaleDate());
+           //print to text area "Invoice made"
+       }
+
+       //create a new file with the contents of the invoice
+       //the names quantities and prices for each sale
+   }
+   public double salesCommission(Date startDate, Date endDate, SalesAssociate salesAssociate){
+       double result = 0.0; 
+       invoice = new ArrayList<>();
+
+       for (Sale sale : saleHistory){
+
+           Date saleDate = sale.getSaleDate();
+
+           if ((saleDate.after(startDate) || saleDate.equals(startDate)) &&
+                   (saleDate.before(endDate) || saleDate.equals(endDate)) &&
+                   sale.getSoldBy() == salesAssociate){
+
+               invoice.add(sale);
+           }
+       }
+       
+       for (Sale in: invoice){
+           for(Double x: in.getPrices()){
+               result+=x;           }
+           
+       }
+       result = result *.15;
+       return result;
+    }
+}
