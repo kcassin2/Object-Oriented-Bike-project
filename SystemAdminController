@@ -1,0 +1,14 @@
+package application;
+
+import javafx.fxml.FXML;
+import javafx.scene.control.Label;
+import javafx.scene.layout.AnchorPane;
+
+public class SystemAdminController {
+
+	@FXML
+    private AnchorPane SAAP;
+
+    @FXML
+    private Label SAL;
+}
