@@ -10,14 +10,21 @@ public class SalesAssociate extends Account{
     public SalesAssociate(String firstName, String lastName, String userName, String password) {
         super(firstName, lastName, userName, password);
     }
-    
-    public String getUsername(){
-        
+  
     }
-    public String getPassword(){
-        
-    }
-    public ArrayList<String> generateInvoice(Date date){
-        
-    }
+   public void generateInvoice(Date startDate, Date endDate, SalesAssociate salesAssociate){
+
+       invoice = new ArrayList<>();
+
+       for (Sale sale : saleHistory){
+
+           Date saleDate = sale.getSaleDate();
+
+           if ((saleDate.after(startDate) || saleDate.equals(startDate)) &&
+                   (saleDate.before(endDate) || saleDate.equals(endDate)) &&
+                   sale.getSoldBy() == salesAssociate){
+
+               invoice.add(sale);
+           }
+       }
 }
