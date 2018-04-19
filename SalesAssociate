@@ -5,26 +5,20 @@ import java.util.Date;
  *
  * @author Karen Cassine
  */
-public class SalesAssociate extends Account{
+public class SalesAssociate {
+String firstName;
+String lastName;
+    public SalesAssociate(String firstName, String lastName, String userName, String password) {   
+        
+        
+    }
 
-    public SalesAssociate(String firstName, String lastName, String userName, String password) {
-        super(firstName, lastName, userName, password);
+   public String getFirstName() {
+     return firstName;  
+    }
+
+    public String getLastName() {
+        return lastName;
     }
   
     }
-   public void generateInvoice(Date startDate, Date endDate, SalesAssociate salesAssociate){
-
-       invoice = new ArrayList<>();
-
-       for (Sale sale : saleHistory){
-
-           Date saleDate = sale.getSaleDate();
-
-           if ((saleDate.after(startDate) || saleDate.equals(startDate)) &&
-                   (saleDate.before(endDate) || saleDate.equals(endDate)) &&
-                   sale.getSoldBy() == salesAssociate){
-
-               invoice.add(sale);
-           }
-       }
-}
