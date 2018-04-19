@@ -1,15 +1,79 @@
 package application;
 
+import java.awt.event.ActionEvent;
+
 import javafx.fxml.FXML;
+import javafx.scene.control.Button;
 import javafx.scene.control.Label;
-import javafx.scene.layout.AnchorPane;
+import javafx.scene.control.TextArea;
+import javafx.scene.control.TextField;
 
 public class WareHouseManagerController {
-	
-	@FXML
-    private AnchorPane WMAP;
 
     @FXML
-    private Label WML;
-    
+    private Button EBPNameButton;
+
+    @FXML
+    private Label EBPNameLabel;
+
+    @FXML
+    private TextField EBPNameTL;
+
+    @FXML
+    private TextArea EBPNameTA;
+
+    @FXML
+    private TextArea EBPNumberTA;
+
+    @FXML
+    private TextField EBPNumberTL;
+
+    @FXML
+    private Label EBPNumberLabel;
+
+    @FXML
+    private Button EBPNumberButton;
+
+    @FXML
+    private Button UWDButton;
+
+    @FXML
+    private Label UWDLabel;
+
+    @FXML
+    private TextArea UWDTA;
+
+    @FXML
+    private TextField UWDTL;
+
+    @FXML
+    void EBPNumberSearch(ActionEvent event) {
+
+    }
+
+    @FXML
+    void EPBNameSearch(ActionEvent event) {
+
+    }
+
+    @FXML
+    void getEBPNameLabel(ActionEvent event) {
+
+    }
+
+    @FXML
+    void getEBPNumberLabel(ActionEvent event) {
+
+    }
+
+    @FXML
+    void getUWDLabel(ActionEvent event) {
+
+    }
+
+    @FXML
+    void getUWDUpdate(ActionEvent event) {
+
+    }
+
 }
