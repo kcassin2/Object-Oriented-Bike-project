@@ -1,7 +1,9 @@
+package application;
+
 import java.util.Comparator;
 
 public class Inventory {
-    private BikePart bp;
+    private static BikePart bp;
     private int count;
 
     public static Comparator<Inventory> SORT_BY_NAME = new Comparator<Inventory>() {
@@ -15,28 +17,22 @@ public class Inventory {
 
     public static Comparator<Inventory> SORT_BY_NUMBER = (Inventory i1, Inventory i2) -> (Integer.compare(i1.getBp().getNumber(), i2.getBp().getNumber()));
 
+    public static Comparator<Inventory> SORT_BY_COUNT = new Comparator<Inventory>() {
+
+        public int compare(final Inventory o1, final Inventory o2) {
+        	int o1Count = o1.getCount();
+            int o2Count = o2.getCount();
+            return Integer.compare(o1Count, o2Count);
+        }
+
+    };
+    
     public Inventory(BikePart bp, int count) {
         this.bp = bp;
         this.count = count;
     }
-    
-    public static Comparator<Inventory> SORT_BY_COUNT = new Comparator<Inventory>() {
 
-        @Override
-
-        public int compare(final Inventory o1, final Inventory o2) {
-
-            String o1Name = o1.getBp().getName() + o1.getBp().getName() + o1.getCount();
-
-            String o2Name = o2.getBp().getName() + o2.getBp().getName() + o2.getCount();;
-
-            return o1Count.compareTo(o2Count);
-
-        }
-
-    };
-
-    public BikePart getBp() {
+    public static BikePart getBp() {
         return bp;
     }
 
