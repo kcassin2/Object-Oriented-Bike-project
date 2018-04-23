@@ -1,15 +1,58 @@
 package application;
 
+import java.awt.event.ActionEvent;
+
 import javafx.fxml.FXML;
-import javafx.scene.control.Label;
-import javafx.scene.layout.AnchorPane;
+import javafx.scene.control.Button;
+import javafx.scene.control.TextArea;
+import javafx.scene.control.TextField;
 
 public class SalesAssociateController {
-	
-	@FXML
-    private AnchorPane SASAP;
 
     @FXML
-    private Label SASL;
-    
+    private Button SALSVButton;
+
+    @FXML
+    private TextField SALSVTF;
+
+    @FXML
+    private TextArea SALSVTA;
+
+    @FXML
+    private Button SASButton;
+
+    @FXML
+    private TextArea SASTA;
+
+    @FXML
+    private TextField SASTFName;
+
+    @FXML
+    private TextField SASTFQuantity;
+
+    @FXML
+    void doLSVUpdate(ActionEvent event) {
+
+    }
+
+    @FXML
+    void getSALSV(ActionEvent event) {
+
+    }
+
+    @FXML
+    void getSASButton(ActionEvent event) {
+
+    }
+
+    @FXML
+    void getSASTFName(ActionEvent event) {
+
+    }
+
+    @FXML
+    void getSASTFQuantity(ActionEvent event) {
+
+    }
+
 }
