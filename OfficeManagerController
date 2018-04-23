@@ -1,10 +1,15 @@
+package application;
+
+import java.awt.event.ActionEvent;
+
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
+import javafx.scene.control.DatePicker;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 
-public class PleaseProvideControllerClassName {
+public class OfficeManagerController {
 
     @FXML
     private Button OMEBPNameButton;
@@ -19,16 +24,76 @@ public class PleaseProvideControllerClassName {
     private TextArea OMBPNameTA;
 
     @FXML
-    private TextArea OMEBPNumberTA;
+    private Button OMEBPNameButton1;
 
     @FXML
-    private TextField OMEBPNumberTL;
+    private Label OMEBPNameLabel1;
 
     @FXML
-    private Label OMEBPNumberLabel;
+    private TextField OMEBPNameTL1;
 
     @FXML
-    private Button OMEBPNumberButton;
+    private TextArea OMBPNameTA1;
+
+    @FXML
+    private TextArea OMGSOPTA;
+
+    @FXML
+    private Button OMGSOPButton;
+
+    @FXML
+    private Button OMOPButton;
+
+    @FXML
+    private TextField OMOPTF;
+
+    @FXML
+    private TextArea OMOPTA;
+
+    @FXML
+    private TextArea OMSAIInvoiveTA;
+
+    @FXML
+    private TextField OMSAITF;
+
+    @FXML
+    private DatePicker OMSAIEndDate;
+
+    @FXML
+    private DatePicker OMSAIStartDate;
+
+    @FXML
+    private Button OMSAIButton;
+
+    @FXML
+    private TextArea OMSCITA;
+
+    @FXML
+    private TextField OMSCITF;
+
+    @FXML
+    private DatePicker OMSCIEndDate;
+
+    @FXML
+    private DatePicker OMSCIStartDate;
+
+    @FXML
+    private Button OMSCIButton;
+
+    @FXML
+    private TextArea OMSCTA;
+
+    @FXML
+    private TextField OMSCTF;
+
+    @FXML
+    private DatePicker OMSCEndDate;
+
+    @FXML
+    private DatePicker OMSCStartDate;
+
+    @FXML
+    private Button OMSCButton;
 
     @FXML
     void getOMEBPNameButton(ActionEvent event) {
@@ -41,12 +106,77 @@ public class PleaseProvideControllerClassName {
     }
 
     @FXML
-    void getOMEBPNumberButton(ActionEvent event) {
+    void getOMGSOP(ActionEvent event) {
 
     }
 
     @FXML
-    void getOMEBPNumberTL(ActionEvent event) {
+    void getOMOP(ActionEvent event) {
+
+    }
+
+    @FXML
+    void getOMOPTF(ActionEvent event) {
+
+    }
+
+    @FXML
+    void getOMSAI(ActionEvent event) {
+
+    }
+
+    @FXML
+    void getOMSAIEndDate(ActionEvent event) {
+
+    }
+
+    @FXML
+    void getOMSAIStartDate(ActionEvent event) {
+
+    }
+
+    @FXML
+    void getOMSAITF(ActionEvent event) {
+
+    }
+
+    @FXML
+    void getOMSCButton(ActionEvent event) {
+
+    }
+
+    @FXML
+    void getOMSCEndDate(ActionEvent event) {
+
+    }
+
+    @FXML
+    void getOMSCI(ActionEvent event) {
+
+    }
+
+    @FXML
+    void getOMSCIEndDate(ActionEvent event) {
+
+    }
+
+    @FXML
+    void getOMSCIStartDate(ActionEvent event) {
+
+    }
+
+    @FXML
+    void getOMSCITF(ActionEvent event) {
+
+    }
+
+    @FXML
+    void getOMSCStartDate(ActionEvent event) {
+
+    }
+
+    @FXML
+    void getOMSCTF(ActionEvent event) {
 
     }
 
