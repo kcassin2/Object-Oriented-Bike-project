@@ -1,42 +1,96 @@
-import java.util.ArrayList;
+package application;
 
-public class OfficeManager extends Account{
-  public Inventory examinePartByName(String partName) {
-    	Inventory i = MainWareHouse.findPartByName(partName);
+import java.sql.Date;
+import java.util.ArrayList;
+import application.MainWareHouse;
+
+public class OfficeManager {
+	
+	String firstName;
+    String lastName;
+    String userName;
+    String password;
+    String email;
+
+    public OfficeManager(String firstName, String lastName, String email, String userName, String password){
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.userName = userName;
+        this.password = password;
+        this.email= email;
+    }
+
+    public String getFirstName(){
+        return firstName;
+    }
+
+    public String getLastName(){
+        return lastName;
+    }
+
+    public String getPassword(){
+        return password;
+    }
+
+    public String getEmail(){
+        return email;
+    }
+
+    public String getUserName(){
+        return userName;
+    }
+    
+    public void setPassword(String password){
+        this.password = password;
+    } 
+    
+	public Inventory examinePartByName(String partName) {
+		Inventory i = MainWareHouse.findPartByName(partName);
     	return i;
-  }
-  public Inventory examinePartByNumber(int partNumber) {
+	}
+	
+	public Inventory examinePartByNumber(int partNumber) {
     	Inventory i = MainWareHouse.findPartByNumber(partNumber);
     	return i;
-  }
-  public String viewNotification() {
-  	minimum = 10;
-	String s;
-  	for (Inventory i : whDB) {
-		if (i.getCount()<=minimum){
-			s += i;
+	}
+	
+	public String viewNotification() {
+		int minimum = 10;
+		String s = "";
+		for (Inventory i : MainWareHouse.whDB) {
+			if (i.getCount()<=minimum){
+				s += i;
+			}
 		}
+		return s;
 	}
-	return s;
-  }
-  public String queryWarehouse() {
-  	String s;
-  	for (Inventory i : whDB) {
-  		s += i.SORT_BY_COUNT;
+	
+	public String queryWarehouse() {
+		String s = "";
+		for (Inventory i : MainWareHouse.whDB) {
+			s += i.SORT_BY_COUNT;
+		}
+		return s;
 	}
-	return s;
-  }
-  public void orderPart(String partName, int quantity) {
-  	Inventory i = MainWareHouse.findPartByName(partName);
-	addinventory(i.getBp,quantity);
-  }
-  public String viewInvoiceC(String client) {
-  	
-  }
-  public String viewInvoiceA(String associateName) {
-  	
-  }
-  public double generatePay(String associateName, Date sDate, Date eDate) {
-  	
-  }
+
+	public void orderPart(String partName, int quantity) {
+		Inventory i = MainWareHouse.findPartByName(partName);
+		MainWareHouse.addInventory(i.getBp() ,quantity);
+	}
+	
+	public String viewInvoiceC(String client) {
+		String invoice = "";
+		return invoice;
+	}
+	
+	public String viewInvoiceA(String associateName) {
+		String invoice = "";
+		return invoice;
+	}
+	
+	public double generatePay(String associateName, Date sDate, Date eDate) {
+		double pay = 0;
+		return pay;
+	}
+	
 }
