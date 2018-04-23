@@ -111,41 +111,72 @@ public class SampleController {
 
     @FXML
     void SALogin(ActionEvent event) throws IOException {
-		Stage primaryStage = new Stage();
-		Parent root = FXMLLoader.load(getClass().getResource("SystemAdmin.fxml"));
-		Scene scene = new Scene(root,600,400);
-		scene.getStylesheets().add(getClass().getResource("application.css").toExternalForm());
-		primaryStage .setScene(scene);
-		primaryStage.show();	
+    	if(SAUNF.getText().equals("admin") && SAPF.getText().equals("nimda")) {
+			Stage secondaryStage = new Stage();
+			Parent root = FXMLLoader.load(getClass().getResource("SystemAdmin.fxml"));
+			Scene scene = new Scene(root,600,400);
+			scene.getStylesheets().add(getClass().getResource("application.css").toExternalForm());
+			secondaryStage.setScene(scene);
+			Main.primaryStage.hide();
+			secondaryStage.show();	
+    	}
     }
     
     @FXML
     void OMLogin(ActionEvent event) throws IOException {
-    	Stage primaryStage = new Stage();
-		Parent root = FXMLLoader.load(getClass().getResource("OfficeManager.fxml"));
-		Scene scene = new Scene(root,600,400);
-		scene.getStylesheets().add(getClass().getResource("application.css").toExternalForm());
-		primaryStage .setScene(scene);
-		primaryStage.show();	
+    	OfficeManager om = null;
+    	for (OfficeManager o: AccountFleet.allOfficeManagers) {
+    		if (o.getUserName().equals(OMUNF.getText()) && o.getPassword().equals(OMPF.getText())){
+    			om = o;
+    		}
+    	}
+    	if(om != null) {
+	    	Stage secondaryStage = new Stage();
+			Parent root = FXMLLoader.load(getClass().getResource("OfficeManager.fxml"));
+			Scene scene = new Scene(root,600,400);
+			scene.getStylesheets().add(getClass().getResource("application.css").toExternalForm());
+			secondaryStage.setScene(scene);
+			Main.primaryStage.hide();
+			secondaryStage.show();	
+	    }
     }
     
     @FXML
     void WMLogin(ActionEvent event) throws IOException {
-    	Stage primaryStage = new Stage();
-		Parent root = FXMLLoader.load(getClass().getResource("WareHouseManager.fxml"));
-		Scene scene = new Scene(root,600,400);
-		scene.getStylesheets().add(getClass().getResource("application.css").toExternalForm());
-		primaryStage .setScene(scene);
-		primaryStage.show();	
+    	WareHouseManager wm = null;
+    	for (WareHouseManager w: AccountFleet.allWareHouseManagers) {
+    		if (w.getUserName().equals(WMUNF.getText()) && w.getPassword().equals(WMPF.getText())){
+    			wm = w;
+    		}
+    	}
+    	if(wm != null) {
+	    	Stage secondaryStage = new Stage();
+			Parent root = FXMLLoader.load(getClass().getResource("WareHouseManager.fxml"));
+			Scene scene = new Scene(root,600,400);
+			scene.getStylesheets().add(getClass().getResource("application.css").toExternalForm());
+			secondaryStage.setScene(scene);
+			Main.primaryStage.hide();
+			secondaryStage.show();	
+    	}
     }
     
     @FXML
     void SASLogin(ActionEvent event) throws IOException {
-    	Stage primaryStage = new Stage();
-		Parent root = FXMLLoader.load(getClass().getResource("SalesAssociate.fxml"));
-		Scene scene = new Scene(root,600,400);
-		scene.getStylesheets().add(getClass().getResource("application.css").toExternalForm());
-		primaryStage .setScene(scene);
-		primaryStage.show();	
+    	SalesAssociate sa = null;
+    	for (SalesAssociate s: AccountFleet.allSalesAssociates) {
+    		if (s.getUserName().equals(SASUNF.getText()) && s.getPassword().equals(SASPF.getText())){
+    			sa = s;
+    		}
+    	}
+    	if(sa != null) {
+	    	Stage secondaryStage = new Stage();
+			Parent root = FXMLLoader.load(getClass().getResource("SalesAssociate.fxml"));
+			Scene scene = new Scene(root,600,400);
+			scene.getStylesheets().add(getClass().getResource("application.css").toExternalForm());
+			secondaryStage .setScene(scene);
+			Main.primaryStage.hide();
+			secondaryStage.show();	
+    	}
     }
 }
+
