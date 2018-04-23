@@ -1,14 +1,177 @@
 package application;
 
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.control.Tab;
+import javafx.scene.control.TabPane;
+import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
 
 public class SystemAdminController {
 
-	@FXML
+    @FXML
     private AnchorPane SAAP;
 
     @FXML
-    private Label SAL;
+    private TabPane SATP;
+
+    @FXML
+    private Tab AOM;
+
+    @FXML
+    private AnchorPane AOMAP;
+
+    @FXML
+    private TextField OMFN;
+
+    @FXML
+    private TextField OMLN;
+
+    @FXML
+    private TextField OME;
+
+    @FXML
+    private TextField OMUN;
+
+    @FXML
+    private TextField OMP;
+
+    @FXML
+    private Label OML1;
+
+    @FXML
+    private Label OML2;
+
+    @FXML
+    private Label OML3;
+
+    @FXML
+    private Label OML4;
+
+    @FXML
+    private Label OML5;
+
+    @FXML
+    private Button AOMButton;
+
+    @FXML
+    private Tab AWM;
+
+    @FXML
+    private AnchorPane AWMAP;
+
+    @FXML
+    private TextField WMFN;
+
+    @FXML
+    private TextField WMLN;
+
+    @FXML
+    private TextField WME;
+
+    @FXML
+    private TextField WMUN;
+
+    @FXML
+    private TextField WMP;
+
+    @FXML
+    private Label WML1;
+
+    @FXML
+    private Label WML2;
+
+    @FXML
+    private Label WML3;
+
+    @FXML
+    private Label WML4;
+
+    @FXML
+    private Label WML5;
+
+    @FXML
+    private Button AWMButton;
+
+    @FXML
+    private Tab ASA;
+
+    @FXML
+    private AnchorPane ASAAP;
+
+    @FXML
+    private TextField SAFN;
+
+    @FXML
+    private TextField SALN;
+
+    @FXML
+    private TextField SAE;
+
+    @FXML
+    private TextField SAUN;
+
+    @FXML
+    private TextField SAP;
+
+    @FXML
+    private Label SAL1;
+
+    @FXML
+    private Label SAL2;
+
+    @FXML
+    private Label SAL3;
+
+    @FXML
+    private Label SAL4;
+
+    @FXML
+    private Label SAL5;
+
+    @FXML
+    private Button ASAButton;
+
+    @FXML
+    private Tab AV;
+
+    @FXML
+    private AnchorPane AVAP;
+
+    @FXML
+    private TextField AssociateName;
+
+    @FXML
+    private Label SAN;
+
+    @FXML
+    private Button AVButton;
+
+    @FXML
+    void AddOM(ActionEvent event) {
+    	OfficeManager om = new OfficeManager(OMFN.getText(), OMLN.getText(), OME.getText(), OMUN.getText(), OMP.getText());
+    	AccountFleet.addOM(om);
+    }
+    
+    @FXML
+    void AddWM(ActionEvent event) {
+    	WareHouseManager wm = new WareHouseManager(WMFN.getText(), WMLN.getText(), WME.getText(), WMUN.getText(), WMP.getText());
+    	AccountFleet.addWM(wm);
+    }
+
+    @FXML
+    void AddSA(ActionEvent event) {
+    	SalesAssociate sa = new SalesAssociate(SAFN.getText(), SALN.getText(), SAE.getText(), SAUN.getText(), SAP.getText());
+    	AccountFleet.addSA(sa);
+    }
+
+    @FXML
+    void AddVan(ActionEvent event) {
+    	Van v = new Van(AssociateName.getText());
+    	String vanFile = AssociateName.getText() +".txt";
+    	v.saveVanDB(vanFile);
+    }
 }
+
