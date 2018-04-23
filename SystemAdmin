@@ -1,20 +1,33 @@
-import java.util.ArrayList;
-public class SystemAdmin extends Account{
+package application;
 
-	public OfficeManager addOfficeManager(String firstName, String lastName, String email, String uName, String password){
-	  	OfficeManager om = New Account(firstName, lastName, uName, password, email);
-    		return om;
+public class SystemAdmin {
+	
+	String firstName;
+	String lastName;
+	String userName;
+	String password;
+	String email;
+		
+	public SystemAdmin(String userName, String password) {
+		this.userName = userName;
+		this.password = password;
 	}
 
-	public WareHouseManager addWareHouseManager(String firstName, String lastName, String email, String uName, String password) {	
-    		WareHouseManager wm = New Account(firstName, lastName, uName, password, email);
-    		return wm;
+	public void addOfficeManager(String firstName, String lastName, String email, String uName, String password){
+		OfficeManager om = new OfficeManager(firstName, lastName, uName, password, email);
+		AccountFleet.addOM(om);
+		System.out.println(""+ om.getFirstName() + "");
 	}
-  
-	public SalesAssociate addSalesAssociate(String firstName, String lastName, String email, String uName, String password, String vanName) {
-    		SalesAssociate sa = New Account(firstName, lastName, uName, password, email);
-    		Van SaVan= New Van();
-    		SaVan.setAssociate(fName+lName);
-    		return sa;
+	
+	public void addWareHouseManager(String firstName, String lastName, String email, String uName, String password) {	
+		WareHouseManager wm = new WareHouseManager(firstName, lastName, uName, password, email);
+		AccountFleet.addWM(wm);
+		System.out.println(""+ wm.getFirstName() + "");
 	}
+
+	public void addSalesAssociate(String firstName, String lastName, String email, String uName, String password) {
+		SalesAssociate sa = new SalesAssociate(firstName, lastName, uName, password, email);
+		System.out.println(""+ sa.getFirstName() + "");
+	}
+	
 }
