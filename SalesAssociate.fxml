@@ -8,15 +8,15 @@
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<TabPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" tabClosingPolicy="UNAVAILABLE" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/9.0.1">
+<TabPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" tabClosingPolicy="UNAVAILABLE" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.SalesAssociateController">
   <tabs>
     <Tab text="                                 Load Sales Van                        ">
       <content>
         <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                <children>
-                  <Button fx:id="SALSVButton" layoutX="265.0" layoutY="153.0" mnemonicParsing="false" onAction="#doLSVUpdate" text="Update" />
+                  <Button fx:id="SALSVButton" layoutX="265.0" layoutY="153.0" mnemonicParsing="false" onAction="#update" text="Update" />
                   <Label layoutX="129.0" layoutY="103.0" text="Enter the file " />
-                  <TextField fx:id="SALSVTF" layoutX="208.0" layoutY="99.0" onAction="#getSALSV" prefHeight="26.0" prefWidth="170.0" />
+                  <TextField fx:id="SALSVTF" layoutX="208.0" layoutY="99.0" prefHeight="26.0" prefWidth="170.0" />
                   <TextArea fx:id="SALSVTA" layoutX="61.0" layoutY="200.0" prefHeight="143.0" prefWidth="496.0" />
                </children></AnchorPane>
       </content>
@@ -25,11 +25,11 @@
       <content>
         <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                <children>
-                  <Button fx:id="SASButton" layoutX="276.0" layoutY="159.0" mnemonicParsing="false" onAction="#getSASButton" text="Sell" />
+                  <Button fx:id="SASButton" layoutX="276.0" layoutY="159.0" mnemonicParsing="false" onAction="#sell" text="Sell" />
                   <Label layoutX="93.0" layoutY="87.0" text="Enter the part name" />
                   <TextArea fx:id="SASTA" layoutX="61.0" layoutY="200.0" prefHeight="143.0" prefWidth="496.0" />
-                  <TextField fx:id="SASTFName" layoutX="208.0" layoutY="83.0" onAction="#getSASTFName" prefHeight="26.0" prefWidth="170.0" />
-                  <TextField fx:id="SASTFQuantity" layoutX="208.0" layoutY="122.0" onAction="#getSASTFQuantity" prefHeight="26.0" prefWidth="171.0" />
+                  <TextField fx:id="SASTFName" layoutX="208.0" layoutY="83.0" prefHeight="26.0" prefWidth="170.0" />
+                  <TextField fx:id="SASTFQuantity" layoutX="208.0" layoutY="122.0" prefHeight="26.0" prefWidth="171.0" />
                   <Label layoutX="103.0" layoutY="126.0" text="Enter the quantity" />
                </children></AnchorPane>
       </content>
