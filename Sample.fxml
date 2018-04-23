@@ -17,11 +17,11 @@
             <content>
               <AnchorPane fx:id="SAAP" minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                      <children>
-                        <TextField fx:id="SAUNF" layoutX="192.0" layoutY="128.0" prefHeight="25.0" prefWidth="257.0" />
-                        <PasswordField fx:id="SAPF" layoutX="193.0" layoutY="161.0" prefHeight="25.0" prefWidth="256.0" />
-                        <Button fx:id="SAButton" layoutX="274.0" layoutY="221.0" mnemonicParsing="false" onAction="#SALogin" text="Login" />
-                        <Label fx:id="SAUNL" layoutX="128.0" layoutY="132.0" text="UserName" />
-                        <Label fx:id="SAPL" layoutX="128.0" layoutY="165.0" text="Password" />
+                        <TextField fx:id="SAUNF" layoutX="171.0" layoutY="128.0" prefHeight="25.0" prefWidth="255.0" />
+                        <PasswordField fx:id="SAPF" layoutX="171.0" layoutY="161.0" prefHeight="25.0" prefWidth="255.0" />
+                        <Button fx:id="SAButton" layoutX="277.0" layoutY="222.0" mnemonicParsing="false" onAction="#SALogin" text="Login" />
+                        <Label fx:id="SAUNL" layoutX="99.0" layoutY="132.0" text="Username" />
+                        <Label fx:id="SAPL" layoutX="104.0" layoutY="165.0" text="Password" />
                      </children>
                   </AnchorPane>
             </content>
@@ -30,11 +30,11 @@
             <content>
               <AnchorPane fx:id="OMAP" minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                      <children>
-                        <TextField fx:id="OMUNF" layoutX="195.0" layoutY="128.0" prefHeight="25.0" prefWidth="254.0" />
-                        <PasswordField fx:id="OMPF" layoutX="195.0" layoutY="161.0" prefHeight="25.0" prefWidth="254.0" />
-                        <Button fx:id="OMButton" layoutX="274.0" layoutY="232.0" mnemonicParsing="false" onAction="#OMLogin" text="Login" />
-                        <Label fx:id="OMUNL" layoutX="132.0" layoutY="132.0" text="Username" />
-                        <Label fx:id="OMPL" layoutX="132.0" layoutY="165.0" text="Password" />
+                        <TextField fx:id="OMUNF" layoutX="171.0" layoutY="128.0" prefHeight="25.0" prefWidth="255.0" />
+                        <PasswordField fx:id="OMPF" layoutX="171.0" layoutY="161.0" prefHeight="25.0" prefWidth="255.0" />
+                        <Button fx:id="OMButton" layoutX="277.0" layoutY="222.0" mnemonicParsing="false" onAction="#OMLogin" text="Login" />
+                        <Label fx:id="OMUNL" layoutX="99.0" layoutY="132.0" text="Username" />
+                        <Label fx:id="OMPL" layoutX="104.0" layoutY="165.0" text="Password" />
                      </children>
                   </AnchorPane>
             </content>
@@ -43,11 +43,11 @@
               <content>
                 <AnchorPane fx:id="WMAP" minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                      <children>
-                        <TextField fx:id="WMUNF" layoutX="196.0" layoutY="129.0" prefHeight="25.0" prefWidth="253.0" />
-                        <PasswordField fx:id="WMPF" layoutX="196.0" layoutY="161.0" prefHeight="25.0" prefWidth="253.0" />
-                        <Button fx:id="WMButton" layoutX="274.0" layoutY="237.0" mnemonicParsing="false" onAction="#WMLogin" text="Login" />
-                        <Label fx:id="WMUNL" layoutX="135.0" layoutY="133.0" text="Username" />
-                        <Label fx:id="WMPL" layoutX="135.0" layoutY="165.0" text="Password" />
+                        <TextField fx:id="WMUNF" layoutX="171.0" layoutY="128.0" prefHeight="25.0" prefWidth="255.0" />
+                        <PasswordField fx:id="WMPF" layoutX="171.0" layoutY="161.0" prefHeight="25.0" prefWidth="255.0" />
+                        <Button fx:id="WMButton" layoutX="277.0" layoutY="222.0" mnemonicParsing="false" onAction="#WMLogin" text="Login" />
+                        <Label fx:id="WMUNL" layoutX="99.0" layoutY="132.0" text="Username" />
+                        <Label fx:id="WMPL" layoutX="104.0" layoutY="165.0" text="Password" />
                      </children>
                   </AnchorPane>
               </content>
@@ -56,11 +56,11 @@
               <content>
                 <AnchorPane fx:id="SASAP" minHeight="0.0" minWidth="0.0" prefHeight="371.0" prefWidth="413.0">
                      <children>
-                        <TextField fx:id="SASUNF" layoutX="191.0" layoutY="129.0" prefHeight="25.0" prefWidth="258.0" />
-                        <PasswordField fx:id="SASPF" layoutX="192.0" layoutY="161.0" prefHeight="25.0" prefWidth="257.0" />
-                        <Button fx:id="SASButton" layoutX="274.0" layoutY="232.0" mnemonicParsing="false" onAction="#SASLogin" text="Login" />
-                        <Label fx:id="SASUNL" layoutX="123.0" layoutY="133.0" text="Username" />
-                        <Label fx:id="SASPL" layoutX="123.0" layoutY="165.0" text="Password" />
+                        <TextField fx:id="SASUNF" layoutX="171.0" layoutY="128.0" prefHeight="25.0" prefWidth="255.0" />
+                        <PasswordField fx:id="SASPF" layoutX="171.0" layoutY="161.0" prefHeight="25.0" prefWidth="255.0" />
+                        <Button fx:id="SASButton" layoutX="277.0" layoutY="222.0" mnemonicParsing="false" onAction="#SASLogin" text="Login" />
+                        <Label fx:id="SASUNL" layoutX="99.0" layoutY="132.0" text="Username" />
+                        <Label fx:id="SASPL" layoutX="104.0" layoutY="165.0" text="Password" />
                      </children>
                   </AnchorPane>
               </content>
