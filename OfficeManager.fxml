@@ -9,15 +9,15 @@
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<TabPane prefHeight="392.0" prefWidth="733.0" tabClosingPolicy="UNAVAILABLE" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1">
+<TabPane prefHeight="392.0" prefWidth="784.0" tabClosingPolicy="UNAVAILABLE" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.OfficeManagerController">
   <tabs>
       <Tab text="Examine Part by Name">
         <content>
           <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                <children>
-                  <Button fx:id="OMEBPNameButton" layoutX="335.0" layoutY="113.0" mnemonicParsing="false" onAction="#getOMEBPNameButton" text="Search" />
+                  <Button fx:id="OMEBPNameButton" layoutX="335.0" layoutY="113.0" mnemonicParsing="false" onAction="#getOMPName" text="Search" />
                   <Label fx:id="OMEBPNameLabel" layoutX="140.0" layoutY="73.0" text="Enter the Bike Part name:" />
-                  <TextField fx:id="OMEBPNameTL" layoutX="326.0" layoutY="69.0" onAction="#getOMEBPNameTL" prefHeight="26.0" prefWidth="300.0" />
+                  <TextField fx:id="OMEBPNameTL" layoutX="326.0" layoutY="69.0" prefHeight="26.0" prefWidth="300.0" />
                   <TextArea fx:id="OMBPNameTA" layoutX="121.0" layoutY="150.0" prefHeight="200.0" prefWidth="480.0" />
                </children>
             </AnchorPane>
@@ -27,9 +27,9 @@
          <content>
             <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                <children>
-                  <Button fx:id="OMEBPNameButton1" layoutX="335.0" layoutY="113.0" mnemonicParsing="false" onAction="#getOMEBPNameButton" text="Search" />
+                  <Button fx:id="OMEBPNameButton1" layoutX="335.0" layoutY="113.0" mnemonicParsing="false" onAction="#getOMPNumber" text="Search" />
                   <Label fx:id="OMEBPNameLabel1" layoutX="140.0" layoutY="73.0" text="Enter the Bike Part number:" />
-                  <TextField fx:id="OMEBPNameTL1" layoutX="326.0" layoutY="69.0" onAction="#getOMEBPNameTL" prefHeight="26.0" prefWidth="300.0" />
+                  <TextField fx:id="OMEBPNameTL1" layoutX="326.0" layoutY="69.0" prefHeight="26.0" prefWidth="300.0" />
                   <TextArea fx:id="OMBPNameTA1" layoutX="121.0" layoutY="150.0" prefHeight="200.0" prefWidth="480.0" />
                </children>
             </AnchorPane>
@@ -41,38 +41,38 @@
                <children>
                   <TextArea layoutX="297.0" layoutY="49.0" prefHeight="57.0" prefWidth="321.0" />
                   <Button layoutX="139.0" layoutY="65.0" mnemonicParsing="false" text="Generate stock of parts" />
-                  <Button layoutX="501.0" layoutY="150.0" mnemonicParsing="false" text="Order parts" />
+                  <Button layoutX="501.0" layoutY="150.0" mnemonicParsing="false" onAction="#orderPart" text="Order parts" />
                   <TextField layoutX="436.0" layoutY="149.0" prefHeight="26.0" prefWidth="36.0" />
                   <TextArea layoutX="139.0" layoutY="214.0" prefHeight="135.0" prefWidth="480.0" />
                   <Label layoutX="139.0" layoutY="154.0" text="Enter the quantity of parts that you would like to order" />
                </children></AnchorPane>
         </content>
       </Tab>
-      <Tab text="Sales Associate Invoice">
+      <Tab text="Sales Invoice by Associate">
         <content>
           <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                <children>
-                  <TextArea layoutX="121.0" layoutY="193.0" prefHeight="157.0" prefWidth="480.0" />
-                  <TextField layoutX="370.0" layoutY="40.0" prefHeight="26.0" prefWidth="154.0" />
-                  <DatePicker layoutX="370.0" layoutY="104.0" prefHeight="26.0" prefWidth="157.0" />
-                  <DatePicker layoutX="370.0" layoutY="73.0" prefHeight="26.0" prefWidth="155.0" />
+                  <TextArea fx:id="AGITextArea" layoutX="121.0" layoutY="193.0" prefHeight="157.0" prefWidth="480.0" />
+                  <TextField fx:id="AssociateName" layoutX="370.0" layoutY="40.0" prefHeight="26.0" prefWidth="154.0" />
+                  <DatePicker fx:id="AEndDate" layoutX="370.0" layoutY="104.0" prefHeight="26.0" prefWidth="157.0" />
+                  <DatePicker fx:id="AStartDate" layoutX="370.0" layoutY="73.0" prefHeight="26.0" prefWidth="155.0" />
                   <Label layoutX="192.0" layoutY="45.0" text="Enter the sales associate's name" />
-                  <Button layoutX="308.0" layoutY="156.0" mnemonicParsing="false" text="Generate Invoice" />
+                  <Button fx:id="AGIButton" layoutX="308.0" layoutY="156.0" mnemonicParsing="false" onAction="#generateInvoiceAssociate" text="Generate Invoice" />
                   <Label layoutX="260.0" layoutY="77.0" text="Enter the start date" />
                   <Label layoutX="262.0" layoutY="108.0" text="Enter the end date" />
                </children></AnchorPane>
         </content>
       </Tab>
-      <Tab text="Sales Customer Invoice">
+      <Tab text="Sales Invoice by Customer">
          <content>
             <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                <children>
-                  <TextArea layoutX="121.0" layoutY="193.0" prefHeight="157.0" prefWidth="480.0" />
-                  <TextField layoutX="370.0" layoutY="40.0" prefHeight="26.0" prefWidth="154.0" />
-                  <DatePicker layoutX="370.0" layoutY="104.0" prefHeight="26.0" prefWidth="157.0" />
-                  <DatePicker layoutX="370.0" layoutY="73.0" prefHeight="26.0" prefWidth="155.0" />
+                  <TextArea fx:id="CGITextArea" layoutX="121.0" layoutY="193.0" prefHeight="157.0" prefWidth="480.0" />
+                  <TextField fx:id="CustomerName" layoutX="370.0" layoutY="40.0" prefHeight="26.0" prefWidth="154.0" />
+                  <DatePicker fx:id="CEndDate" layoutX="370.0" layoutY="104.0" prefHeight="26.0" prefWidth="157.0" />
+                  <DatePicker fx:id="CStartDate" layoutX="370.0" layoutY="73.0" prefHeight="26.0" prefWidth="155.0" />
                   <Label layoutX="218.0" layoutY="44.0" text="Enter the customer's name" />
-                  <Button layoutX="308.0" layoutY="156.0" mnemonicParsing="false" text="Generate Invoice" />
+                  <Button fx:id="CGIButton" layoutX="308.0" layoutY="156.0" mnemonicParsing="false" onAction="#generateInvoiceCustomer" text="Generate Invoice" />
                   <Label layoutX="260.0" layoutY="77.0" text="Enter the start date" />
                   <Label layoutX="262.0" layoutY="108.0" text="Enter the end date" />
                </children>
@@ -81,14 +81,14 @@
       </Tab>
       <Tab text="Sales Commision">
          <content>
-            <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+            <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="391.0" prefWidth="745.0">
                <children>
-                  <TextArea layoutX="121.0" layoutY="193.0" prefHeight="157.0" prefWidth="480.0" />
-                  <TextField layoutX="370.0" layoutY="40.0" prefHeight="26.0" prefWidth="154.0" />
-                  <DatePicker layoutX="370.0" layoutY="104.0" prefHeight="26.0" prefWidth="157.0" />
-                  <DatePicker layoutX="370.0" layoutY="73.0" prefHeight="26.0" prefWidth="155.0" />
+                  <TextArea fx:id="GPTextArea" layoutX="121.0" layoutY="193.0" prefHeight="157.0" prefWidth="480.0" />
+                  <TextField fx:id="GPAssociatesName" layoutX="370.0" layoutY="40.0" prefHeight="26.0" prefWidth="154.0" />
+                  <DatePicker fx:id="GPEndDate" layoutX="370.0" layoutY="104.0" prefHeight="26.0" prefWidth="157.0" />
+                  <DatePicker fx:id="GPStartDate" layoutX="370.0" layoutY="73.0" prefHeight="26.0" prefWidth="155.0" />
                   <Label layoutX="193.0" layoutY="44.0" text="Enter the sales associate's name" />
-                  <Button layoutX="327.0" layoutY="155.0" mnemonicParsing="false" text="Generate Pay" />
+                  <Button fx:id="GPButton" layoutX="327.0" layoutY="155.0" mnemonicParsing="false" onAction="#generatePay" text="Generate Pay" />
                   <Label layoutX="260.0" layoutY="77.0" text="Enter the start date" />
                   <Label layoutX="262.0" layoutY="108.0" text="Enter the end date" />
                </children>
