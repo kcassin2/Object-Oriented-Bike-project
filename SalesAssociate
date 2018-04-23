@@ -1,24 +1,45 @@
+package application;
+
 import java.util.ArrayList;
 import java.util.Date;
 
-/**
- *
- * @author Karen Cassine
- */
-public class SalesAssociate {
-String firstName;
-String lastName;
-    public SalesAssociate(String firstName, String lastName, String userName, String password) {   
-        
-        
+public class SalesAssociate{
+
+	String firstName;
+    String lastName;
+    String userName;
+    String password;
+    String email;
+
+    public SalesAssociate(String firstName, String lastName, String email, String userName, String password){
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.userName = userName;
+        this.password = password;
+        this.email= email;
+    }
+    
+    public String getFirstName(){
+        return firstName;
     }
 
-   public String getFirstName() {
-     return firstName;  
-    }
-
-    public String getLastName() {
+    public String getLastName(){
         return lastName;
     }
-  
+    
+    public void setPassword(String password){
+        this.password = password;
+    } 
+
+    public String getPassword(){
+        return password;
     }
+
+    public String getEmail(){
+        return email;
+    }
+
+    public String getUserName(){
+        return userName;
+    }
+}
