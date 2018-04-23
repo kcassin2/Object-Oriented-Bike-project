@@ -68,6 +68,17 @@
                   </AnchorPane>
                </content>
             </Tab>
+            <Tab fx:id="AV" text="Add Van">
+              <content>
+                <AnchorPane fx:id="AVAP" minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <TextField fx:id="AssociateName" layoutX="236.0" layoutY="135.0" prefHeight="25.0" prefWidth="242.0" />
+                        <Label fx:id="SAN" layoutX="112.0" layoutY="139.0" text="Sales Associate Name" />
+                        <Button fx:id="AVButton" layoutX="266.0" layoutY="199.0" mnemonicParsing="false" onAction="#AddVan" text="ADD VAN" />
+                     </children>
+                  </AnchorPane>
+              </content>
+            </Tab>
         </tabs>
       </TabPane>
    </children>
