@@ -1,5 +1,16 @@
 package application;
 	
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
+import java.io.PrintWriter;
+import java.io.Serializable;
+import java.util.Scanner;
+
 import javafx.application.Application;
 import javafx.stage.Stage;
 import javafx.scene.Scene;
@@ -9,7 +20,15 @@ import javafx.fxml.FXMLLoader;
 
 public class Main extends Application {
 	
-	static Stage primaryStage = new Stage();;
+	static Stage primaryStage = new Stage();
+	public static MainWareHouse mwh = new MainWareHouse();
+	public static File allVans = new File("Vans.txt");
+	public static File allWM = new File("WareHouseManagers.txt");
+	public static File allOM = new File("OfficeManagers.txt");
+	public static File allSAS = new File("SalesAssociates.txt");
+	public static VansFactory vf = new VansFactory();
+	public static AccountFleet af = new AccountFleet();
+	
 
 	@Override
 	public void start(Stage primaryStage) {
@@ -25,7 +44,162 @@ public class Main extends Application {
 		}
 	}
 	
-	public static void main(String[] args) {
+	public static void main(String[] args) throws IOException {
+		startupMainWareHouse();
+		startupVan();
+		startupAccount();
 		launch(args);
+		
+	}
+	
+	@Override
+	public void stop() throws FileNotFoundException, IOException {
+		stopMainWareHouse();
+		stopVan();
+		stopAccount();
+	}
+	
+	private static void startupMainWareHouse() {
+		try {
+		mwh.updateWHDB("MainWarehouse.txt");
+		} catch (FileNotFoundException e) {
+		System.out.println("Missing MainWarehouse");
+		e.printStackTrace();
+		}
+        mwh.saveWhDB("MainWarehouse.txt");		
+	}
+	
+	private void stopMainWareHouse() {
+		File warehouses = new File ("MainWarehouse.txt");		
+			mwh.saveWhDB("MainWarehouse");
+	}
+	
+	public static void startupVan() throws IOException {
+		if(allVans.exists() && !allVans.isDirectory()) {
+			System.out.println("Vans found");
+			FileInputStream vstreamIn = new FileInputStream("Vans.txt");
+			Scanner vIn = new Scanner(vstreamIn);
+			try {
+				while (vIn.hasNext()) {
+					Van v = new Van (vIn.nextLine());
+					vf.addNewVan(v);
+				}
+			} catch (Exception ev) {
+				ev.printStackTrace();
+			} finally {
+				vIn.close();
+			}
+		}else {
+			System.out.println("Vans not found");
+		}
+	}
+
+	public void stopVan() throws FileNotFoundException, IOException {
+		FileOutputStream vStreamOut = new FileOutputStream("Vans.txt", false);
+		PrintWriter vOut = new PrintWriter(vStreamOut);
+		try{
+			vOut.println(vf.getAllVans());
+			System.out.println("Vans written");
+		} catch (Exception ev) {
+			ev.printStackTrace();
+		} finally {
+			vOut.close();
+		}
+	}
+	
+	public static void startupAccount() throws IOException {
+		if(allOM.exists() && !allOM.isDirectory()) {
+			System.out.println("OfficeManagers found");
+			FileInputStream OMStreamIn = new FileInputStream("OfficeManagers.txt");
+			Scanner OMIn = new Scanner(OMStreamIn);
+			try {
+				while (OMIn.hasNext()) {
+					String line = OMIn.nextLine();
+			        String[] o = line.split(",");
+			        String firstName = o[0];
+			        String lastName = o[1];
+			        String email = o[2];
+			        String userName = o[3];
+			        String password = o[4];
+					OfficeManager om = new OfficeManager(firstName, lastName, email, userName, password);
+					af.addOM(om);
+				}
+			} catch (Exception e) {
+				e.printStackTrace();
+			} finally {
+				OMIn.close();
+			}
+		}else {
+			System.out.println("OfficeManagers not found");
+		}
+		if(allWM.exists() && !allWM.isDirectory()) {
+			System.out.println("WareHouseManagers found");
+			FileInputStream WMStreamIn = new FileInputStream("WareHouseManagers.txt");
+			Scanner WMIn = new Scanner(WMStreamIn);
+			try {
+				while (WMIn.hasNext()) {
+					String line = WMIn.nextLine();
+			        String[] w = line.split(",");
+			        String firstName = w[0];
+			        String lastName = w[1];
+			        String email = w[2];
+			        String userName = w[3];
+			        String password = w[4];
+					WareHouseManager wm = new WareHouseManager(firstName, lastName, email, userName, password);
+					af.addWM(wm);
+				}
+			} catch (Exception e) {
+				e.printStackTrace();
+			} finally {
+				WMIn.close();
+			}
+		}else {
+			System.out.println("WareHouseManagers not found");
+		}
+		if(allWM.exists() && !allWM.isDirectory()) {
+			System.out.println("SalesAssociates found");
+			FileInputStream SASStreamIn = new FileInputStream("SalesAssociates.txt");
+			Scanner SASIn = new Scanner(SASStreamIn);
+			try {
+				while (SASIn.hasNext()) {
+					String line = SASIn.nextLine();
+			        String[] s = line.split(",");
+			        String firstName = s[0];
+			        String lastName = s[1];
+			        String email = s[2];
+			        String userName = s[3];
+			        String password = s[4];
+					SalesAssociate sa = new SalesAssociate(firstName, lastName, email, userName, password);
+					af.addSA(sa);
+				}
+			} catch (Exception e) {
+				e.printStackTrace();
+			} finally {
+				SASIn.close();
+			}
+		}else {
+			System.out.println("SalesAssociates not found");
+		}
+	}
+	
+	public void stopAccount() throws FileNotFoundException, IOException {
+		FileOutputStream OMStreamOut = new FileOutputStream("OfficeManagers.txt", false);
+		FileOutputStream WMStreamOut = new FileOutputStream("WareHouseManagers.txt", false);
+		FileOutputStream SASStreamOut = new FileOutputStream("SalesAssociates.txt", false);
+		PrintWriter OMOut = new PrintWriter(OMStreamOut);
+		PrintWriter WMOut = new PrintWriter(WMStreamOut);
+		PrintWriter SASOut = new PrintWriter(SASStreamOut);
+		try{
+			OMOut.println(af.getOM());
+			WMOut.println(af.getWM());
+			SASOut.println(af.getSA());
+			System.out.println("Accounts written");
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			OMOut.close();
+			WMOut.close();
+			SASOut.close();
+		}
 	}
 }
