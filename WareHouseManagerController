@@ -1,7 +1,6 @@
 package application;
 
-import java.awt.event.ActionEvent;
-
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
@@ -57,23 +56,9 @@ public class WareHouseManagerController {
     }
 
     @FXML
-    void getEBPNameLabel(ActionEvent event) {
-
-    }
-
-    @FXML
-    void getEBPNumberLabel(ActionEvent event) {
-
-    }
-
-    @FXML
-    void getUWDLabel(ActionEvent event) {
-
-    }
-
-    @FXML
     void getUWDUpdate(ActionEvent event) {
 
     }
 
 }
+
