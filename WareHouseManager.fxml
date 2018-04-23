@@ -8,7 +8,7 @@
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<TabPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" tabClosingPolicy="UNAVAILABLE" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/9.0.1">
+<TabPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" tabClosingPolicy="UNAVAILABLE" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.WareHouseManagerController">
   <tabs>
     <Tab text="Examine Part by Name">
       <content>
@@ -16,7 +16,7 @@
                <children>
                   <Button fx:id="EBPNameButton" layoutX="274.0" layoutY="113.0" mnemonicParsing="false" onAction="#EPBNameSearch" text="Search" />
                   <Label fx:id="EBPNameLabel" layoutX="60.0" layoutY="74.0" text="Enter the Bike Part name:" />
-                  <TextField fx:id="EBPNameTL" layoutX="200.0" layoutY="70.0" onAction="#getEBPNameLabel" prefHeight="26.0" prefWidth="300.0" />
+                  <TextField fx:id="EBPNameTL" layoutX="200.0" layoutY="70.0" prefHeight="26.0" prefWidth="300.0" />
                   <TextArea fx:id="EBPNameTA" layoutX="60.0" layoutY="155.0" prefHeight="200.0" prefWidth="480.0" />
                </children></AnchorPane>
       </content>
@@ -26,7 +26,7 @@
         <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                <children>
                   <TextArea fx:id="EBPNumberTA" layoutX="60.0" layoutY="155.0" prefHeight="200.0" prefWidth="480.0" />
-                  <TextField fx:id="EBPNumberTL" layoutX="211.0" layoutY="70.0" onAction="#getEBPNumberLabel" prefHeight="26.0" prefWidth="289.0" />
+                  <TextField fx:id="EBPNumberTL" layoutX="211.0" layoutY="70.0" prefHeight="26.0" prefWidth="289.0" />
                   <Label fx:id="EBPNumberLabel" layoutX="60.0" layoutY="74.0" text="Enter the Bike Part Number:" />
                   <Button fx:id="EBPNumberButton" layoutX="274.0" layoutY="113.0" mnemonicParsing="false" onAction="#EBPNumberSearch" text="Search" />
                </children></AnchorPane>
@@ -39,7 +39,7 @@
                   <Button fx:id="UWDButton" layoutX="274.0" layoutY="113.0" mnemonicParsing="false" onAction="#getUWDUpdate" text="Update" />
                   <Label fx:id="UWDLabel" layoutX="60.0" layoutY="74.0" text="Enter the WareHouse file:" />
                   <TextArea fx:id="UWDTA" layoutX="60.0" layoutY="155.0" prefHeight="200.0" prefWidth="480.0" />
-                  <TextField fx:id="UWDTL" layoutX="200.0" layoutY="70.0" onAction="#getUWDLabel" prefHeight="26.0" prefWidth="300.0" />
+                  <TextField fx:id="UWDTL" layoutX="200.0" layoutY="70.0" prefHeight="26.0" prefWidth="300.0" />
                </children>
             </AnchorPane>
         </content>
