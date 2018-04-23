@@ -1,0 +1,25 @@
+package application;
+
+import java.util.ArrayList;
+import application.Van;
+
+public class VansFactory{
+	
+	static ArrayList<Van> Vans;
+	
+	public void VanFactory(){
+		Vans = new ArrayList<>();
+	}
+	
+	public static void addNewVan(Van van) {
+		Vans.add(van);
+	}
+	
+	public static String getAllVans() {
+		String s = "";
+		for (Van v: Vans) {
+			s += "" + v.getName() + "\n";
+		}
+		return s;
+	}
+}
