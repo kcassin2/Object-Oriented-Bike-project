@@ -27,10 +27,10 @@
          <content>
             <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                <children>
-                  <Button fx:id="OMEBPNameButton1" layoutX="335.0" layoutY="113.0" mnemonicParsing="false" onAction="#getOMPNumber" text="Search" />
-                  <Label fx:id="OMEBPNameLabel1" layoutX="140.0" layoutY="73.0" text="Enter the Bike Part number:" />
-                  <TextField fx:id="OMEBPNameTL1" layoutX="326.0" layoutY="69.0" prefHeight="26.0" prefWidth="300.0" />
-                  <TextArea fx:id="OMBPNameTA1" layoutX="121.0" layoutY="150.0" prefHeight="200.0" prefWidth="480.0" />
+                  <Button fx:id="OMEBPNumberButton" layoutX="335.0" layoutY="113.0" mnemonicParsing="false" onAction="#getOMPNumber" text="Search" />
+                  <Label fx:id="OMEBPNumberLabel" layoutX="140.0" layoutY="73.0" text="Enter the Bike Part number:" />
+                  <TextField fx:id="OMEBPNumberTL" layoutX="326.0" layoutY="69.0" prefHeight="26.0" prefWidth="300.0" />
+                  <TextArea fx:id="OMBPNumberTA" layoutX="121.0" layoutY="150.0" prefHeight="200.0" prefWidth="480.0" />
                </children>
             </AnchorPane>
          </content>
@@ -39,12 +39,15 @@
         <content>
           <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                <children>
-                  <TextArea layoutX="297.0" layoutY="49.0" prefHeight="57.0" prefWidth="321.0" />
-                  <Button layoutX="139.0" layoutY="65.0" mnemonicParsing="false" text="Generate stock of parts" />
-                  <Button layoutX="501.0" layoutY="150.0" mnemonicParsing="false" onAction="#orderPart" text="Order parts" />
-                  <TextField layoutX="436.0" layoutY="149.0" prefHeight="26.0" prefWidth="36.0" />
-                  <TextArea layoutX="139.0" layoutY="214.0" prefHeight="135.0" prefWidth="480.0" />
-                  <Label layoutX="139.0" layoutY="154.0" text="Enter the quantity of parts that you would like to order" />
+                  <TextArea fx:id="sortedBP" layoutX="36.0" layoutY="32.0" prefHeight="304.0" prefWidth="344.0" />
+                  <Button fx:id="QueryButton" layoutX="518.0" layoutY="219.0" mnemonicParsing="false" onAction="#queryWH" text="Query stock of parts" />
+                  <Button fx:id="OPButton" layoutX="541.0" layoutY="311.0" mnemonicParsing="false" onAction="#orderPart" text="Order parts" />
+                  <TextField fx:id="addQuantity" layoutX="673.0" layoutY="263.0" prefHeight="34.0" prefWidth="77.0" />
+                  <Label layoutX="392.0" layoutY="260.0" prefHeight="23.0" prefWidth="299.0" text="Enter quantity to add for all BikePart that there are " />
+                  <TextArea fx:id="BPUnderTen" layoutX="407.0" layoutY="33.0" prefHeight="173.0" prefWidth="344.0" />
+                  <Label layoutX="77.0" layoutY="14.0" text="All the BikeParts in order of their quantity in stock" />
+                  <Label layoutX="466.0" layoutY="14.0" text="All the BikeParts that are 10 or less in stock" />
+                  <Label layoutX="486.0" layoutY="276.0" text="10 or less of in stock:" />
                </children></AnchorPane>
         </content>
       </Tab>
