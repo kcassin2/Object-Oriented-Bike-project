@@ -1,9 +1,5 @@
-package application;
-
-import java.util.Comparator;
-
 public class Inventory {
-    private static BikePart bp;
+    private BikePart bp;
     private int count;
 
     public static Comparator<Inventory> SORT_BY_NAME = new Comparator<Inventory>() {
@@ -32,7 +28,7 @@ public class Inventory {
         this.count = count;
     }
 
-    public static BikePart getBp() {
+    public BikePart getBp() {
         return bp;
     }
 
