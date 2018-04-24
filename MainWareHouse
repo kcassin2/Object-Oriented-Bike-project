@@ -1,8 +1,10 @@
 package application;
 
 
+import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.io.FileReader;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.ArrayList;
@@ -15,7 +17,7 @@ public class MainWareHouse {
 	String whName;
 	String whFileName;
 	static List<Inventory> whDB;
-	private Scanner read;
+	private static Scanner read;
 
 	public MainWareHouse() {
 		whDB = new ArrayList<Inventory>();		
@@ -45,19 +47,19 @@ public class MainWareHouse {
 			whDB.add(new Inventory(bp,qty));
 	}
 
-	public void updateWHDB(String fileName) throws FileNotFoundException{
-		File file = new File(fileName);
-		read = new Scanner(file);
-		while (read.hasNextLine()) {
-			String line = read.nextLine();
-			String regExp = "\\s*(\\s|,)\\s*";
-			String[] bpi = line.split(regExp);
-			BikePart bp = new BikePart(bpi[0],
-					Integer.parseInt(bpi[1]),
-					Double.parseDouble(bpi[2]),
-					Double.parseDouble(bpi[3]),
-					bpi[4].equals("true") ? true : false);
+	public void updateWHDB(String fileName) throws IOException{
+		FileReader fileReader = new FileReader(fileName);
+		BufferedReader bufferedReader = new BufferedReader(fileReader);
+		while((String) bufferedReader.readLine() != null) {
+			String line =bufferedReader.readLine();
+			String[] bpi = line.split(",");
+			String name = bpi[0];
+			int number = Integer.parseInt(bpi[1]);
+			double price = Double.parseDouble(bpi[2]);
+			double salesPrice = Double.parseDouble(bpi[3]);
+			Boolean onSale = Boolean.parseBoolean(bpi[4]);
 			int qty = Integer.parseInt(bpi[5]);
+			BikePart bp = new BikePart(name,number,price,salesPrice,onSale);
 			addInventory(bp, qty);
 		}
 	}
@@ -95,7 +97,7 @@ public class MainWareHouse {
 		return whDB;
 	}
 
-	public void saveWhDB(String fileName) {
+	public static void saveWhDB(String fileName) {
 		try{
 			PrintWriter writer = new PrintWriter(fileName, "UTF-8");
 			for (Inventory i : whDB)
