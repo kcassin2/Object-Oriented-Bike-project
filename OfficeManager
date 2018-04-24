@@ -1,7 +1,8 @@
 package application;
 
 import java.sql.Date;
-import java.util.ArrayList;
+import java.util.Collections;
+
 import application.MainWareHouse;
 
 public class OfficeManager {
@@ -44,38 +45,35 @@ public class OfficeManager {
         this.password = password;
     } 
     
-	public Inventory examinePartByName(String partName) {
-		Inventory i = MainWareHouse.findPartByName(partName);
-    	return i;
-	}
-	
-	public Inventory examinePartByNumber(int partNumber) {
-    	Inventory i = MainWareHouse.findPartByNumber(partNumber);
-    	return i;
-	}
-	
-	public String viewNotification() {
+	public static String viewNotification() {
 		int minimum = 10;
 		String s = "";
-		for (Inventory i : MainWareHouse.whDB) {
+		for (Inventory i : Main.mwh.whDB) {
 			if (i.getCount()<=minimum){
-				s += i;
+				s += i.toString() + "\n";
 			}
 		}
 		return s;
 	}
 	
-	public String queryWarehouse() {
-		String s = "";
-		for (Inventory i : MainWareHouse.whDB) {
-			s += i.SORT_BY_COUNT;
-		}
-		return s;
+	public static String queryWarehouse() {
+		String output = "";
+	    	Collections.sort(Main.mwh.getInventory(), Inventory.SORT_BY_COUNT);
+	        for (Inventory i : Main.mwh.getInventory()) {
+	        	output += i + "\n";
+	        } 
+	    return output;
 	}
 
-	public void orderPart(String partName, int quantity) {
-		Inventory i = MainWareHouse.findPartByName(partName);
-		MainWareHouse.addInventory(i.getBp() ,quantity);
+	public static void orderPart(int quantity) {
+		int minimum = 10;
+		String s = "";
+		for (Inventory i : Main.mwh.whDB) {
+			if (i.getCount()<=minimum){
+				Main.mwh.addInventory(i.getBp(),quantity);
+				Main.mwh.saveWhDB("MainWareHouse.txt");
+			}
+		}
 	}
 	
 	public String viewInvoiceC(String client) {
