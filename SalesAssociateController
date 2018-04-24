@@ -1,7 +1,8 @@
 package application;
 
-import java.awt.event.ActionEvent;
+import java.io.IOException;
 
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextArea;
@@ -25,34 +26,21 @@ public class SalesAssociateController {
     private TextArea SASTA;
 
     @FXML
-    private TextField SASTFName;
+    private TextField SASTFNumber;
 
     @FXML
     private TextField SASTFQuantity;
 
     @FXML
-    void doLSVUpdate(ActionEvent event) {
-
+    void sell(ActionEvent event) throws NumberFormatException, IOException {
+    	String s = SalesAssociate.sell(Integer.parseInt(SASTFNumber.getText()), Integer.parseInt(SASTFQuantity.getText()));
+    	SASTA.appendText(s);
     }
 
     @FXML
-    void getSALSV(ActionEvent event) {
-
-    }
-
-    @FXML
-    void getSASButton(ActionEvent event) {
-
-    }
-
-    @FXML
-    void getSASTFName(ActionEvent event) {
-
-    }
-
-    @FXML
-    void getSASTFQuantity(ActionEvent event) {
-
+    void update(ActionEvent event) throws IOException {
+    	String s = SalesAssociate.load(SALSVTF.getText());
+    	SALSVTA.appendText(s);
     }
 
 }
