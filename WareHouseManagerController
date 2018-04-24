@@ -50,20 +50,21 @@ public class WareHouseManagerController {
 
     @FXML
     void EBPNumberSearch(ActionEvent event) {
-    	Inventory i = WareHouseManager.examinePartbyNumber(Integer.parseInt(EBPNumberTL.getText()));
+    	Inventory i = Main.mwh.findPartByNumber(Integer.parseInt(EBPNumberTL.getText()));
     	EBPNumberTA.appendText(i.toString());
     }
 
     @FXML
     void EPBNameSearch(ActionEvent event) {
-    	Inventory i = WareHouseManager.examinePartbyName(EBPNameTL.getText());
+    	Inventory i = Main.mwh.findPartByName(EBPNameTL.getText());
     	EBPNameTA.appendText(i.toString());
     }
 
     @FXML
     void getUWDUpdate(ActionEvent event) throws IOException {
     	Main.mwh.updateWHDB(UWDTL.getText());
-    	UWDTA.appendText("Update Completed");
+    	Main.mwh.saveWhDB("MainWareHouse.txt");
+    	UWDTA.appendText("Update Completed" + "\n");
     }
 
 }
