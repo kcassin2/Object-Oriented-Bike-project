@@ -26,9 +26,6 @@ public class Main extends Application {
 	public static File allWM = new File("WareHouseManagers.txt");
 	public static File allOM = new File("OfficeManagers.txt");
 	public static File allSAS = new File("SalesAssociates.txt");
-//	public static VansFactory vf = new VansFactory();
-//	public static AccountFleet af = new AccountFleet();
-	
 
 	@Override
 	public void start(Stage primaryStage) {
@@ -45,8 +42,7 @@ public class Main extends Application {
 	}
 	
 	public static void main(String[] args) throws IOException {
-//		startupMainWareHouse();
-//		startupVan();
+		startupMainWareHouse();
 		startupAccount();
 		launch(args);
 		
@@ -54,58 +50,21 @@ public class Main extends Application {
 	
 	@Override
 	public void stop() throws FileNotFoundException, IOException {
-//		stopMainWareHouse();
-//		stopVan();
 		stopAccount();
 	}
 	
-//	private static void startupMainWareHouse() {
-//		try {
-//		mwh.updateWHDB("MainWarehouse.txt");
-//		} catch (FileNotFoundException e) {
-//		System.out.println("Missing MainWarehouse");
-//		e.printStackTrace();
-//		}
-//        mwh.saveWhDB("MainWarehouse.txt");		
-//	}
-	
-//	private void stopMainWareHouse() {
-//		File warehouses = new File ("MainWarehouse.txt");		
-//			mwh.saveWhDB("MainWarehouse.txt");
-//	}
-	
-//	public static void startupVan() throws IOException {
-//		if(allVans.exists() && !allVans.isDirectory()) {
-//			System.out.println("Vans found");
-//			FileInputStream vstreamIn = new FileInputStream("Vans.txt");
-//			Scanner vIn = new Scanner(vstreamIn);
-//			try {
-//				while (vIn.hasNext()) {
-//					Van v = new Van (vIn.nextLine());
-//					vf.addNewVan(v);
-//				}
-//			} catch (Exception ev) {
-//				ev.printStackTrace();
-//			} finally {
-//				vIn.close();
-//			}
-//		}else {
-//			System.out.println("Vans not found");
-//		}
-//	}
-
-//	public void stopVan() throws FileNotFoundException, IOException {
-//		FileOutputStream vStreamOut = new FileOutputStream("Vans.txt", false);
-//		PrintWriter vOut = new PrintWriter(vStreamOut);
-//		try{
-//			vOut.println(VansFactory.getAllVans());
-//			System.out.println("Vans written");
-//		} catch (Exception ev) {
-//			ev.printStackTrace();
-//		} finally {
-//			vOut.close();
-//		}
-//	}
+	private static void startupMainWareHouse() {
+			try {
+			mwh.updateWHDB("MainWarehouse.txt");
+			} catch (FileNotFoundException e) {
+			System.out.println("Missing MainWarehouse");
+			e.printStackTrace();
+			}	
+		}
+		
+	private void stopMainWareHouse() {	
+			mwh.saveWhDB("MainWarehouse.txt");
+	}
 	
 	public static void startupAccount() throws IOException {
 		if(allOM.exists() && !allOM.isDirectory()) {
@@ -114,7 +73,7 @@ public class Main extends Application {
 			Scanner OMIn = new Scanner(OMStreamIn);
 			try {
 				while (OMIn.hasNext()) {
-					String line = OMIn.next();
+					String line = OMIn.nextLine();
 			        String[] o = line.split(",");
 			        String firstName = o[0];
 			        String lastName = o[1];
@@ -182,7 +141,7 @@ public class Main extends Application {
 		}
 	}
 	
-	public void stopAccount() throws FileNotFoundException, IOException {
+	public static void stopAccount() throws FileNotFoundException, IOException {
 		FileOutputStream OMStreamOut = new FileOutputStream("OfficeManagers.txt", false);
 		FileOutputStream WMStreamOut = new FileOutputStream("WareHouseManagers.txt", false);
 		FileOutputStream SASStreamOut = new FileOutputStream("SalesAssociates.txt", false);
