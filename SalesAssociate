@@ -19,7 +19,7 @@ public class SalesAssociate{
     String email;
 
     public SalesAssociate(String firstName, String lastName, String email, String userName, String password){
-        this.firstName = firstName;
+        SalesAssociate.firstName = firstName;
         this.lastName = lastName;
         this.userName = userName;
         this.password = password;
@@ -87,6 +87,92 @@ public class SalesAssociate{
 	    	writer.write(i.getBp().getName() + "," + i.getBp().getNumber() + "," + i.getBp().getPrice() + "," + i.getBp().getSalesPrice() +
 					"," + i.getBp().isOnSale() + "," + i.getCount() + "\n");
 	    }
+	    writer.close();
 	    return output;
 	}
+    
+    public static String load(String fileName) throws IOException {
+    	String output = "";
+    	FileReader fReader = new FileReader(fileName);
+		BufferedReader bReader = new BufferedReader(fReader);	
+		String firstLine = bReader.readLine();
+		String[] wh = firstLine.split(",");
+		String whFrom = wh[0]+".txt";
+		String whTo = wh[1]+".txt";
+		ArrayList<Inventory> fai = new ArrayList<>();
+		ArrayList<Inventory> tai = new ArrayList<>();
+    	try {
+    		FileReader fileReader = new FileReader(whFrom);
+			BufferedReader bufferedReader = new BufferedReader(fileReader);	
+			String line;
+			while((line = bufferedReader.readLine()) != null) {
+				String[] bpi = line.split(",");
+				String name = bpi[0];
+				int number = Integer.parseInt(bpi[1]);
+				double price = Double.parseDouble(bpi[2]);
+				double salesPrice = Double.parseDouble(bpi[3]);
+				Boolean onSale = Boolean.parseBoolean(bpi[4]);
+				int qty = Integer.parseInt(bpi[5]);
+				BikePart bp = new BikePart(name,number,price,salesPrice,onSale);
+				Inventory i = new Inventory(bp,qty);
+				fai.add(i);
+			}   
+			bufferedReader.close();
+    	}catch(IOException x) {
+    		
+    	}
+    	try {
+    		FileReader fileReader = new FileReader(whTo);
+			BufferedReader bufferedReader = new BufferedReader(fileReader);	
+			String line;
+			while((line = bufferedReader.readLine()) != null) {
+				String[] bpi = line.split(",");
+				String name = bpi[0];
+				int number = Integer.parseInt(bpi[1]);
+				double price = Double.parseDouble(bpi[2]);
+				double salesPrice = Double.parseDouble(bpi[3]);
+				Boolean onSale = Boolean.parseBoolean(bpi[4]);
+				int qty = Integer.parseInt(bpi[5]);
+				BikePart bp = new BikePart(name,number,price,salesPrice,onSale);
+				Inventory i = new Inventory(bp,qty);
+				tai.add(i);
+			}   
+			bufferedReader.close();
+    	}catch(IOException x) {
+    		
+    	}
+		String line;
+		while ((line = bReader.readLine()) != null) {
+	        String[] part = line.split(",");
+	        String partName = part[0];
+	        int quantity = Integer.parseInt(part[1]);
+	        for(Inventory i : fai) {
+	        	if(i.getBp().getName().equals(partName)) {
+	        		int temp = i.getCount();
+	        		i.setCount(temp-quantity);
+	        		output = "Transfered";
+	        	}
+	        }for(Inventory i:tai) {
+	        	if(i.getBp().getName().equals(partName)) {
+	        		int temp = i.getCount();
+	        		i.setCount(temp+quantity);
+					output = "Transfered";
+	        	}
+	        }
+		}
+		bReader.close();
+		BufferedWriter writerF = new BufferedWriter(new FileWriter(whFrom));
+	    for (Inventory i :fai) {
+	    	writerF.write(i.getBp().getName() + "," + i.getBp().getNumber() + "," + i.getBp().getPrice() + "," + i.getBp().getSalesPrice() +
+					"," + i.getBp().isOnSale() + "," + i.getCount() + "\n");
+	    }
+	    writerF.close();
+		BufferedWriter writerT = new BufferedWriter(new FileWriter(whTo));
+	    for (Inventory i :tai) {
+	    	writerT.write(i.getBp().getName() + "," + i.getBp().getNumber() + "," + i.getBp().getPrice() + "," + i.getBp().getSalesPrice() +
+					"," + i.getBp().isOnSale() + "," + i.getCount() + "\n");
+	    }
+	    writerT.close();
+	    return output;
+    }
 }
