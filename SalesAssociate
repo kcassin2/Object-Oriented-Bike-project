@@ -1,11 +1,18 @@
 package application;
 
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileReader;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.Scanner;
 
 public class SalesAssociate{
 
-	String firstName;
+	static String firstName;
     String lastName;
     String userName;
     String password;
@@ -42,4 +49,44 @@ public class SalesAssociate{
     public String getUserName(){
         return userName;
     }
+    
+    public static String sell(int partNumber, int quantity) throws IOException {
+		ArrayList<Inventory> ai = new ArrayList<>();
+    	String fileName = firstName+".txt";
+    	try {
+    		FileReader fileReader = new FileReader(fileName);
+			BufferedReader bufferedReader = new BufferedReader(fileReader);	
+			String line;
+			while((line = bufferedReader.readLine()) != null) {
+				String[] bpi = line.split(",");
+				String name = bpi[0];
+				int number = Integer.parseInt(bpi[1]);
+				double price = Double.parseDouble(bpi[2]);
+				double salesPrice = Double.parseDouble(bpi[3]);
+				Boolean onSale = Boolean.parseBoolean(bpi[4]);
+				int qty = Integer.parseInt(bpi[5]);
+				BikePart bp = new BikePart(name,number,price,salesPrice,onSale);
+				Inventory i = new Inventory(bp,qty);
+				ai.add(i);
+			}   
+			bufferedReader.close();
+    	}catch(IOException x) {
+    		
+    	}
+		String output = "";
+		for (Inventory i: ai) {
+			BikePart bp = i.getBp();
+			if (bp.getNumber() == partNumber) {
+				int temp = i.getCount();
+				i.setCount(temp-quantity);
+				output = i.toString() + " " + (new Date()).toString() + "\n";
+			}
+		}
+		BufferedWriter writer = new BufferedWriter(new FileWriter(fileName));
+	    for (Inventory i :ai) {
+	    	writer.write(i.getBp().getName() + "," + i.getBp().getNumber() + "," + i.getBp().getPrice() + "," + i.getBp().getSalesPrice() +
+					"," + i.getBp().isOnSale() + "," + i.getCount() + "\n");
+	    }
+	    return output;
+	}
 }
