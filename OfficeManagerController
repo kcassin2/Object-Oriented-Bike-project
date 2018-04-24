@@ -23,16 +23,31 @@ public class OfficeManagerController {
     private TextArea OMBPNameTA;
 
     @FXML
-    private Button OMEBPNameButton1;
+    private Button OMEBPNumberButton;
 
     @FXML
-    private Label OMEBPNameLabel1;
+    private Label OMEBPNumberLabel;
 
     @FXML
-    private TextField OMEBPNameTL1;
+    private TextField OMEBPNumberTL;
 
     @FXML
-    private TextArea OMBPNameTA1;
+    private TextArea OMBPNumberTA;
+
+    @FXML
+    private TextArea sortedBP;
+
+    @FXML
+    private Button QueryButton;
+
+    @FXML
+    private Button OPButton;
+
+    @FXML
+    private TextField addQuantity;
+
+    @FXML
+    private TextArea BPUnderTen;
 
     @FXML
     private TextArea AGITextArea;
@@ -96,17 +111,26 @@ public class OfficeManagerController {
 
     @FXML
     void getOMPName(ActionEvent event) {
-
+    	Inventory i = Main.mwh.findPartByName(OMEBPNameTL.getText());
+    	OMBPNameTA.appendText(i.toString());
     }
 
     @FXML
     void getOMPNumber(ActionEvent event) {
-
+    	Inventory i = Main.mwh.findPartByNumber(Integer.parseInt(OMEBPNumberTL.getText()));
+    	OMBPNumberTA.appendText(i.toString());
     }
 
     @FXML
     void orderPart(ActionEvent event) {
+    	OfficeManager.orderPart(Integer.parseInt(addQuantity.getText()));
+    }
 
+    @FXML
+    void queryWH(ActionEvent event) {
+    	sortedBP.appendText(OfficeManager.queryWarehouse());
+    	BPUnderTen.appendText(OfficeManager.viewNotification());
     }
 
 }
+
