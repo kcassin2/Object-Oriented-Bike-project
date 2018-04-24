@@ -117,7 +117,6 @@ public class SampleController {
 			Scene scene = new Scene(root,600,400);
 			scene.getStylesheets().add(getClass().getResource("application.css").toExternalForm());
 			secondaryStage.setScene(scene);
-			Main.primaryStage.hide();
 			secondaryStage.show();	
     	}
     }
@@ -133,10 +132,9 @@ public class SampleController {
     	if(om != null) {
 	    	Stage secondaryStage = new Stage();
 			Parent root = FXMLLoader.load(getClass().getResource("OfficeManager.fxml"));
-			Scene scene = new Scene(root,600,400);
+			Scene scene = new Scene(root,800,400);
 			scene.getStylesheets().add(getClass().getResource("application.css").toExternalForm());
 			secondaryStage.setScene(scene);
-			Main.primaryStage.hide();
 			secondaryStage.show();	
 	    }
     }
@@ -155,7 +153,6 @@ public class SampleController {
 			Scene scene = new Scene(root,600,400);
 			scene.getStylesheets().add(getClass().getResource("application.css").toExternalForm());
 			secondaryStage.setScene(scene);
-			Main.primaryStage.hide();
 			secondaryStage.show();	
     	}
     }
@@ -174,9 +171,7 @@ public class SampleController {
 			Scene scene = new Scene(root,600,400);
 			scene.getStylesheets().add(getClass().getResource("application.css").toExternalForm());
 			secondaryStage .setScene(scene);
-			Main.primaryStage.hide();
 			secondaryStage.show();	
     	}
     }
 }
-
