@@ -1,5 +1,8 @@
 package application;
 
+import java.io.FileNotFoundException;
+import java.io.IOException;
+
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
@@ -150,21 +153,24 @@ public class SystemAdminController {
     private Button AVButton;
 
     @FXML
-    void AddOM(ActionEvent event) {
+    void AddOM(ActionEvent event) throws FileNotFoundException, IOException {
     	OfficeManager om = new OfficeManager(OMFN.getText(), OMLN.getText(), OME.getText(), OMUN.getText(), OMP.getText());
     	AccountFleet.addOM(om);
+    	Main.stopAccount();
     }
     
     @FXML
-    void AddWM(ActionEvent event) {
+    void AddWM(ActionEvent event) throws FileNotFoundException, IOException {
     	WareHouseManager wm = new WareHouseManager(WMFN.getText(), WMLN.getText(), WME.getText(), WMUN.getText(), WMP.getText());
     	AccountFleet.addWM(wm);
+    	Main.stopAccount();
     }
 
     @FXML
-    void AddSA(ActionEvent event) {
+    void AddSA(ActionEvent event) throws FileNotFoundException, IOException {
     	SalesAssociate sa = new SalesAssociate(SAFN.getText(), SALN.getText(), SAE.getText(), SAUN.getText(), SAP.getText());
     	AccountFleet.addSA(sa);
+    	Main.stopAccount();
     }
 
     @FXML
